@@ -58,9 +58,33 @@
                 style="margin-top: -170px;">
             </form>
           </li>
+          <li class="nav-item">
+            <div class="form-inline my-2 my-lg-0 " style="margin-left: 400px;">
+              <p class="text-white" style="font-weight: bold;margin-top:0px;margin-left: -1500px; font-size:xx-large;">ИГРАЈ
+                КАКО <span class="text-danger">ШАМПИОН</span></p>
+              {%if user.is_authenticated%}
+              <a class="btn btn-danger" style="border-radius: 10%; margin-top: -450px;"
+                href="{% url 'profile' %}">Profile</a>
+              <a class="btn btn-danger" style="border-radius: 10%; margin-top: -450px;" href="{% url 'logout' %}">Logout</a>
+              <a href="{% url 'cart' %}"> <img id="cart-icon" src="{% static 'images/cart.png' %}"
+                  style="margin-top: -450px;"></a>
+              <p id="cart-total" style="margin-left: 190px; margin-top: -270px;">{{cartItems}}</p>
+              {% else %}
+              <a class="btn btn-danger" style="border-radius: 10%; margin-top: -360px;" href="{% url 'login' %}">Login</a>
+              <a class="btn btn-danger" style="border-radius: 10%; margin-top: -360px;"
+                href="{% url 'register' %}">Register</a>
+              {% endif %}
+              {% if user.is_superuser %}
+    
+              <a href="{% url 'product-create' %}"> <img src="images/plus.png"
+                  style="width: 30px; margin-top: 25px; margin-left: 165px;" alt=""></a>
+    
+              {% endif %}
+            </div>
+          </li>
         </ul>
-        <p style="color: white; margin-left: -90px; margin-right: 30px; margin-top: -270px;">{{request.user.username}}</p>
-        <div class="form-inline my-2 my-lg-0">
+        <p style="color: white; margin-top: -270px;">{{request.user.username}}</p>
+        <!-- <div class="form-inline my-2 my-lg-0">
           <p class="text-white" style="font-weight: bold;margin-top:0px;margin-left: -1500px; font-size:xx-large;">ИГРАЈ
             КАКО <span class="text-danger">ШАМПИОН</span></p>
           {%if user.is_authenticated%}
@@ -81,7 +105,7 @@
               style="width: 30px; margin-top: 25px; margin-left: 165px;" alt=""></a>
 
           {% endif %}
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>
@@ -109,7 +133,7 @@
         <hr style="width: 1000px;">
       </div>
       {%endfor%}
-    </div>
+    </div> -->
 
   </div>
   <script type="text/javascript" src="{%static 'js/cart.js'%}"></script>
