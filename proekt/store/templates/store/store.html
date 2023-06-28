@@ -93,7 +93,7 @@
         <div class="row"><img style="width: 400px;" src="{{product.imageURL}}" alt=""></div>
         <h6 style="margin-bottom: 40px;"><strong>{{product.name}}</strong></h6>
       </div>
-      <div style="margin-left: 440px; margin-top: -180px; ">
+      <div style=" margin-top: -180px; " class="text-center">
         <a class="btn btn-danger" style="margin-top: 50px;" href="{% url 'product-detail' product.id %}">View</a>
         {% if user.is_superuser%}
         <a class="btn btn-outline-warning" style="margin-left: 0px; margin-top: 50px;"
